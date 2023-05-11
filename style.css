@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    border: 0;
+    box-sizing: border-box;
+    
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    height: 200px;
+    color: aliceblue;
+    background-color: black;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    border: 1px solid;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
