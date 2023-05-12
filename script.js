@@ -1,14 +1,21 @@
 const key = 'e2449a59'
 
-
-  function sendForm() {
-    const title = document.getElementById("title-input").value;
-    const year = document.getElementById("period").value;
-    const contentType = document.querySelector("#selector-type");
-    const optionType = contentType.children[contentType.selectedIndex];
-    const textOption = optionType.textContent;
+const form = document.getElementById("form");
 
 
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
 
-    alert("Título: " + title + "\nAno: " + year +" \nTipo de conteúdo: " + textOption);
-  }
+  const formData = new FormData(form);
+
+  const title = formData.get('title');
+  const year = formData.get('year');
+  const contentType = document.querySelector("#selector-type");
+  const optionType = contentType.children[contentType.selectedIndex];
+  const textOption = optionType.textContent;
+
+
+  console.log("Título: " + title + "\nAno: " + year +" \nTipo de conteúdo: " + textOption);
+  });
+
+  
