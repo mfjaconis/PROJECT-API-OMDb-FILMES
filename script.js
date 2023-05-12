@@ -12,10 +12,17 @@ form.addEventListener('submit', (event) => {
   const year = formData.get('year');
   const contentType = document.querySelector("#selector-type");
   const optionType = contentType.children[contentType.selectedIndex];
-  const textOption = optionType.textContent;
+  let textOption = optionType.textContent;
 
+  if(textOption === "Filme"){
+    textOption = "Movie";
+  } 
 
-  console.log("Título: " + title + "\nAno: " + year +" \nTipo de conteúdo: " + textOption);
-  });
+  fetch(`https://www.omdbapi.com/?&=Batman&apikey=${key}&t=${title}&y=${year}&type=${textOption}&lang=pt-br`)
+    .then(result => result.json())
+    .then(json => console.log(json))
+    
 
-  
+  console.log("Título: " + title + "\nAno: " + year + " \nTipo de conteúdo: " + textOption);
+});
+
