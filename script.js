@@ -17,10 +17,22 @@ form.addEventListener('submit', (event) => {
   if (textOption === "Filme") {
     textOption = "Movie";
   }
+  
+  let url = `https://www.omdbapi.com/?s=${title}&apikey=${key}`;
+  
+   if(year){
+    url +=`&y=${year}`;
+   }
+   if(textOption === "Filme" ||textOption === "Movie" ){
+    url +=`&type=${textOption}`
+   }
 
-      fetch(`https://www.omdbapi.com/?s=${title}&apikey=${key}`)
+
+      fetch(url)
         .then(result => result.json())
         .then(json => dataList(json))
+        .catch(error => console.error(error))
+        console.log(url);
 })
 
         const dataList = (json) => {
@@ -38,9 +50,13 @@ form.addEventListener('submit', (event) => {
 
             itens.innerHTML = `<img class="card-img-top" src="${element.Poster}" />
              <div class="card-body"><h5 class="card-title">${element.Title}</h5>
-             <p class="card-text">${element.Year}</p>
+             <p class="card-text">Lançado em: ${element.Year}</p>
              <a href="#" class="btn btn-primary">Visitar</a>
              </div>`
+
+             if(element.Poster === "N/A"){
+              return itens = "";
+             }
 
              cardGroup.appendChild(itens);
 
