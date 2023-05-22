@@ -32,7 +32,7 @@ form.addEventListener('submit', (event) => {
         .then(result => result.json())
         .then(json => dataList(json))
         .catch(error => console.error(error))
-        console.log(url);
+        console.log(url.search)
 })
 
         const dataList = (json) => {
@@ -43,23 +43,20 @@ form.addEventListener('submit', (event) => {
             alert(`Esta busca não retornou nenhum resultado, tente novamente com outro titulo.`)
           }
 
-          json.Search.forEach(element => {
+          json.Search.forEach((element) => {
+            if(element.Poster === "N/A"){
+             return;
+            }
           
-            let itens = document.createElement('div');
-            itens.classList.add('card');
+            let itensCard = document.createElement('div');
+            itensCard.classList.add('card');
 
-            itens.innerHTML = `<img class="card-img-top" src="${element.Poster}" />
+            itensCard.innerHTML = `<img class="card-img-top" src="${element.Poster}" />
              <div class="card-body"><h5 class="card-title">${element.Title}</h5>
              <p class="card-text">Lançado em: ${element.Year}</p>
-             <a href="#" class="btn btn-primary">Visitar</a>
              </div>`
 
-             if(element.Poster === "N/A"){
-              return itens = "";
-             }
 
-             cardGroup.appendChild(itens);
-
-             
+             cardGroup.appendChild(itensCard);             
           });
         }
