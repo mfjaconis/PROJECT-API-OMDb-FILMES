@@ -1,4 +1,17 @@
-# PROJECT-API-OMDb-FILMES (PROJETO EM CONSTRUÇÃO)
-Através desse projeto o usuário será capaz de pesquisar um filme ou série informando o título, ano e o tipo (filme/série)
+# API OMDb Filmes
 
-O resultado será trago de acordo com a API OMDb.
+Este é um projeto de exemplo que demonstra o uso da API OMDb para buscar informações sobre filmes. O OMDb é uma API pública que permite acessar informações detalhadas sobre filmes, incluindo títulos, elenco, diretores, avaliações e muito mais.
+
+## Recursos
+
+- Este projeto usa HTML, CSS e JavaScript para criar uma interface de usuário simples para acessar a API OMDb.
+
+- A API OMDb é usada para buscar informações sobre filmes com base no título fornecido pelo usuário.
+
+- Os resultados da busca são exibidos de forma clara e organizada na página da web.
+
+## Contribuição
+
+Se você deseja contribuir para este projeto, sinta-se à vontade para fazer um fork do repositório e enviar uma solicitação pull com suas melhorias.
+
+
